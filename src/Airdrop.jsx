@@ -12,6 +12,8 @@ export function Airdrop() {
         const sign = await connection.requestAirdrop(wallet.publicKey, amount * LAMPORTS_PER_SOL);
         console.log(sign);
         alert("AIRDROP SUCCESS");
+        window.location.reload(false);
+
     }
     return <div className='flex justify-center'>
         <input className="m-2 p-2 w-6/12 rounded-xl border border-sky-500 bg-slate-800 " type="text" placeholder="amount" id="amount"></input>

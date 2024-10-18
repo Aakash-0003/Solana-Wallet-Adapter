@@ -7,7 +7,7 @@ export function SendTokens() {
     const { connection } = useConnection();
     async function sendTokens() {
         let to = document.getElementById("to").value;
-        let amount = document.getElementById("amount").value;
+        let amount = document.getElementById("sol").value;
         const transaction = new Transaction();
         transaction.add(SystemProgram.transfer({
             fromPubkey: wallet.publicKey,
@@ -22,10 +22,12 @@ export function SendTokens() {
         } catch (err) {
             alert(console.log(err))
         }
+        window.location.reload(false);
+
     }
     return <div className='flex justify-center'>
         <input className="m-2 p-2 rounded-xl border border-sky-500 bg-slate-800" type="text" placeholder="To" id="to"></input>
-        <input className="m-2 p-2 w-20 rounded-xl border border-sky-500 bg-slate-800" type="text" placeholder="amount" id="amount"></input>
+        <input className="m-2 p-2 w-20 rounded-xl border border-sky-500 bg-slate-800" type="text" placeholder="amount" id="sol"></input>
         <button className="m-2 p-2 w-24 rounded-xl border border-sky-500 bg-cyan-600 text-slate-200 " onClick={sendTokens}>Send Sol</button>
     </div>
 }

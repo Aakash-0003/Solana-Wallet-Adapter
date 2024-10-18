@@ -15,6 +15,8 @@ export function SignMessage() {
 
         if (!ed25519.verify(signature, encodedMessage, publicKey.toBytes())) throw new Error('Message signature invalid!');
         alert(`Success:Message signature: ${bs58.encode(signature)}`);
+        window.location.reload(false);
+
     };
 
     return (
